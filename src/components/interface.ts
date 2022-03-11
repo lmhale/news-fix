@@ -1,10 +1,8 @@
 import { ActionTypes } from "./types";
 import {Method} from 'axios'
-export interface News {
-  status: string;
-  totalResults: number;
-  articles: [
-    {
+
+export interface Articles {
+    
       source: {
         id: string | null;
         name: string;
@@ -15,16 +13,22 @@ export interface News {
       url: string;
       publishedAt: Date;
       content: string;
-    }
-  ];
+  
+}
+export interface News {
+  status: string;
+  totalResults: number,
+  articles:Articles
+
 }
 
 export interface State {
-  news_data: News[];
+  news_data: News[]
 }
 
 export interface ContextProps {
-    news_data:News[]
+    news_data:News[],
+    getNewsData(): Promise<void>
 }
 export interface ActionProps {
     type:ActionTypes.GET_NEWS_DATA,
@@ -34,10 +38,9 @@ export interface OptionsProps {
   method:Method,
   url:string,
   params:{
-    country:string,
-    apiKey:'string'
+    country:string
   },
   headers:{
-    Host:string
+    'X-Api-Key':string
   }
 }
