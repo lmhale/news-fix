@@ -1,5 +1,6 @@
 import { createConnection, getConnectionOptions } from "typeorm";
 import { User } from "./entities/User";
+import { Favorite } from "./entities/Favorite"
 
 
 const main = async () => {
@@ -9,7 +10,8 @@ const main = async () => {
     await createConnection({
         ...connectionOptions,
         entities:[
-            User
+            User,
+            Favorite
         ]
     });
     console.log("successfully connected to DB")
