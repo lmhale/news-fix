@@ -1,11 +1,11 @@
 import "../styles.css";
 
-import  NewsFeed  from "./NewsFeed";
+import  LoadingBackground  from "./NewsFeed2";
 const App = () => {
   return (
     <>
       <h1>News Fix</h1>
-      <NewsFeed/>
+      <LoadingBackground/>
     </>
   );
 };
