@@ -6,6 +6,7 @@
   "scripts": {
     "start": "webpack serve --config webpack/webpack.config.js --env env=dev",
     "build": "webpack --config webpack/webpack.config.js --env env=prod ",
+    "start-server": "nodemon --watch './**/*.ts' --exec 'ts-node' server/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,10 +21,16 @@
   },
   "homepage": "https://github.com/lmhale/news-fix#readme",
   "dependencies": {
+    "@types/express": "^4.17.13",
     "axios": "^0.26.1",
     "dotenv-webpack": "^7.1.0",
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15",
+    "pg": "^8.7.3",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "ts-node": "^10.7.0",
+    "typeorm": "^0.2.45"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
