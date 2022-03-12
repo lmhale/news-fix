@@ -1,8 +1,8 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable } from "typeorm";
+import { Entity, BaseEntity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable } from "typeorm";
 import { Favorite } from "./Favorite";
 
 @Entity("user")
-export class User {
+export class User extends BaseEntity {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
@@ -11,7 +11,7 @@ export class User {
 
   @Column()
   lastName: string;
-  
+
   @Column()
   password: string;
 
