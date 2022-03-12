@@ -1,12 +1,22 @@
-import { createConnection } from "typeorm";
+import { createConnection, getConnectionOptions } from "typeorm";
+import { User } from "./entities/User";
+
 
 const main = async () => {
+    
   try {
-    await createConnection();
+    const connectionOptions = await getConnectionOptions();
+    await createConnection({
+        ...connectionOptions,
+        entities:[
+            User
+        ]
+    });
     console.log("successfully connected to DB")
   } catch (error) {
     console.error(error)
-    throw new Error("Unable to connect to database")
+    throw new Error("unable to connect to database")
   }
+  
 };
 main();
