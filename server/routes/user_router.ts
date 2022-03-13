@@ -3,21 +3,21 @@ import {Request, Response} from "express";
 import { User } from '../entities/User';
 const router = express.Router();
 
-router.get('/users',async function(req: Request, res: Response) {
+// router.get('/users',async function(req: Request, res: Response) {
 
-  let allUsers = await User.find({ select: ["firstName", "lastName","email", "isActive"] })
-   return res.json(allUsers)
-});
+//   let allUsers = await User.find({ select: ["firstName", "lastName","email", "isActive"] })
+//    return res.json(allUsers)
+// });
 
-router.get('/users/:id', async function(req: Request, res: Response) {
-    let paramsId = req.params.id
-  const oneUser = await User.find({
-        where:{
-            id:paramsId
-        }
-    })
-   return res.json(oneUser)
-})
+// router.get('/users/:id', async function(req: Request, res: Response) {
+//     let paramsId = req.params.id
+//   const oneUser = await User.find({
+//         where:{
+//             id:paramsId
+//         }
+//     })
+//    return res.json(oneUser)
+// })
 
 router.post("/users", async function(req: Request, res: Response) {
    const {
@@ -33,7 +33,7 @@ router.post("/users", async function(req: Request, res: Response) {
    user.password = password
    user.isActive = isActive
    user.email = email
-   await User.save(user)
+//    await User.save(user)
    return res.json(user)
 });
 
