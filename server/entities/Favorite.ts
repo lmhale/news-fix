@@ -1,4 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, BaseEntity, JoinTable } from "typeorm";
+import { User } from "./User";
+
+
 
 export enum CategoryType {
   BUSINESS= 'business',
@@ -10,7 +13,7 @@ export enum CategoryType {
   TECHNOLOGY='technology'
 }
 @Entity("favorite")
-export class Favorite {
+export class Favorite extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
   @Column()
@@ -37,4 +40,12 @@ export class Favorite {
   category:CategoryType
   @Column()
   publishedAt:Date;
+
+  @ManyToMany(type => User, user => user.favorites,{
+    cascade:true
+})
+ @JoinTable()
+  users:User[]
+
+
 }

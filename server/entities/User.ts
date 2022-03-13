@@ -1,8 +1,8 @@
-import { Entity, BaseEntity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable, BaseEntity } from "typeorm";
 import { Favorite } from "./Favorite";
 
 @Entity("user")
-export class User extends BaseEntity {
+export class User extends BaseEntity{
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
@@ -22,18 +22,7 @@ export class User extends BaseEntity {
   })
   email: string;
 
-  @ManyToMany(type => Favorite)
-  @JoinTable({
-      name: "user_favorites", // table name for the junction table of this relation
-      joinColumn: {
-          name: "user",
-          referencedColumnName: "id"
-      },
-      inverseJoinColumn: {
-          name: "favorite",
-          referencedColumnName: "id"
-      }
-  })
-  favorite:Favorite[]
+  @ManyToMany(type => Favorite, favorite => favorite.users)
+  favorites: Favorite[]
 
 }

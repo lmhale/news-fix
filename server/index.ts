@@ -1,4 +1,4 @@
-import { createConnection, getConnectionOptions } from "typeorm";
+import { createConnection, getConnectionOptions, getManager } from "typeorm";
 import express from "express";
 import * as bodyParser from 'body-parser';
 import { User } from "./entities/User";
@@ -6,6 +6,8 @@ import { Favorite } from "./entities/Favorite";
 import { userRouter } from "./routes/user_router";
 import { favoriteRouter } from "./routes/favorite_router";
 const app = express();
+
+
 
 const main = async () => {
   try {
@@ -15,7 +17,7 @@ const main = async () => {
       entities: [User, Favorite],
     });
     console.log("successfully connected to DB");
-   
+    
     //middleware
     app.use(bodyParser.json())
     app.use(express.json());
