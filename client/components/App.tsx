@@ -1,6 +1,5 @@
 import "../styles.css";
 
-import  LoadingBackground  from "./NewsFeed2";
 import { NewsFeed } from "./NewsFeed";
 const App = () => {
   return (

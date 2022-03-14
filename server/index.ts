@@ -43,8 +43,8 @@ const main = async () => {
       );
     });
 
-    app.listen(8080, () => {
-      console.log("Now running on port 8080");
+    app.listen(3000, () => {
+      console.log("Now running on port 3000");
     });
   } catch (error) {
     console.error(error);
