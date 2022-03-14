@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { newsApi } from './features/news/news-api-slice'
+import { favoritesApi } from './features/favorites/favorites-api-slice';
 
 export const store = configureStore({
   reducer: {
-    [newsApi.reducerPath]: newsApi.reducer
+    [newsApi.reducerPath]: newsApi.reducer,
+    [favoritesApi.reducerPath]:favoritesApi.reducer
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware().concat(newsApi.middleware);
