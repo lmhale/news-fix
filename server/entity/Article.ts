@@ -18,8 +18,8 @@ export enum CategoryType {
   }
   @Entity("article")
   export class Article {
-    @PrimaryGeneratedColumn()
-    id:number;
+    @PrimaryColumn()
+    id:string;
 
     @Column()
     title: string;
