@@ -1,6 +1,7 @@
 import { createConnection, getConnectionOptions, getManager } from "typeorm";
 import express from "express";
 import * as bodyParser from "body-parser";
+import cors from "cors";
 import { Request, Response } from "express";
 import { Routes } from "./routes";
 import { User } from "./entity/User";
@@ -13,6 +14,7 @@ const main = async () => {
     //middleware
     app.use(bodyParser.json());
     app.use(express.json());
+    app.use(cors())
 
     const connectionOptions = await getConnectionOptions();
     await createConnection({

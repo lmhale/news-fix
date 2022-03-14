@@ -20,9 +20,10 @@ export const NewsFeed = () => {
             <SingleStory
                 title={value.title}
                 description={value.description}
-                source={value.source}
+                source={value.source.name}
                 image={value.urlToImage}
                 url={value.url}
+                publishedAt={value.publishedAt}
             />
             ))}
         </>
