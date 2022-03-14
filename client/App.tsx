@@ -1,6 +1,6 @@
-import "../styles.css";
+import "./styles.css";
 
-import  LoadingBackground  from "./NewsFeed";
+import  LoadingBackground  from "./features/NewsFeed";
 const App = () => {
   return (
     <>
