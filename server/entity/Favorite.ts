@@ -16,7 +16,16 @@ export class Favorite {
 @PrimaryColumn()
   userId:string
 @PrimaryColumn()
-  articleId:number
+  articleId:string
+@Column()
+url:string
+
+@Column()
+title:string
+
+@Column({nullable:true})
+image:string
+
 
   @ManyToOne(type => User, user => user.favorites, {  primary:true, cascade:true })
   @JoinColumn({name:"userId"})

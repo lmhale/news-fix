@@ -30,6 +30,10 @@ export const Routes = [{
     method:"post",
     route:"/:userId/favorites",
     controller: FavoriteController, action:"save"
-}
+}, {
+    method: "get",
+    route: "/:userId/favorites",
+    controller: FavoriteController, action:"all"
+},
 
 ];
