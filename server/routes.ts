@@ -34,6 +34,11 @@ export const Routes = [{
     method: "get",
     route: "/:userId/favorites",
     controller: FavoriteController, action:"all"
-},
+},{
+    method:"delete",
+    route: "/:userId/favorites/:articleId",
+    controller: FavoriteController, action:"remove"
+}
+
 
 ];

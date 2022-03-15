@@ -3,6 +3,7 @@ import { NextFunction, Request, Response } from "express";
 import { Article } from "../entity/Article";
 import { User } from "../entity/User";
 import { Favorite } from "../entity/Favorite";
+import { threadId } from "worker_threads";
 
 export class FavoriteController {
   favoriteRepository = getRepository(Favorite);
@@ -13,7 +14,7 @@ export class FavoriteController {
     //create new article
     try {
       const newFavorite = new Favorite();
-      let ID = request.body.url + request.body.title;
+      let ID = request.body.publishedAt + request.body.title + request.body.source;
       const newArticle = new Article();
       newArticle.id = ID;
       newArticle.author = request.body.author;
@@ -46,5 +47,21 @@ export class FavoriteController {
       relations: ["favorites"],
     });
     return favs.favorites;
+  }
+//   const question = getRepository(Question);
+// question.categories = question.categories.filter(category => {
+//     return category.id !== categoryToRemove.id
+// })
+//await connection.manager.save(question)
+  async remove(request: Request, response: Response, next: NextFunction) {
+   const favoriteToRemove = await this.favoriteRepository.findOne({
+     where:{
+       userId: request.params.userId, 
+       articleId: request.params.articleId 
+    },
+   relations:['articles', 'users']
+  })
+
+    return this.favoriteRepository.delete(favoriteToRemove)
   }
 }
