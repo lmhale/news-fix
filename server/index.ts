@@ -7,6 +7,7 @@ import { Routes } from "./routes";
 import { User } from "./entity/User";
 import { Favorite } from "./entity/Favorite";
 import { Article } from "./entity/Article";
+import path from "path";
 
 const main = async () => {
   try {
@@ -15,13 +16,14 @@ const main = async () => {
     app.use(bodyParser.json());
     app.use(express.json());
     app.use(cors())
-
+   
     const connectionOptions = await getConnectionOptions();
     await createConnection({
       ...connectionOptions,
       entities: [User, Favorite, Article],
     });
     console.log("successfully connected to DB");
+
 
     Routes.forEach((route) => {
       (app as any)[route.method](

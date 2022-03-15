@@ -8,7 +8,7 @@ export const store = configureStore({
     [favoritesApi.reducerPath]:favoritesApi.reducer
   },
   middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat(newsApi.middleware);
+    return getDefaultMiddleware().concat(newsApi.middleware, favoritesApi.middleware);
   }
 })
 
