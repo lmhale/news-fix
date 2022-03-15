@@ -13,51 +13,44 @@ export class FavoriteController {
   async save(request: Request, response: Response, next: NextFunction) {
     //create new article
     try {
-      const newFavorite = new Favorite();
-      let ID = request.body.publishedAt + request.body.title + request.body.source;
-      const newArticle = new Article();
-      newArticle.id = ID;
-      newArticle.author = request.body.author;
-      newArticle.category = request.body.category;
-      newArticle.description = request.body.description;
-      newArticle.image = request.body.image;
-      newArticle.title = request.body.title;
-      newArticle.url = request.body.url;
-      newArticle.publishedAt = request.body.publishedAt;
-      newArticle.source = request.body.source;
 
-      newArticle.favorites = [newFavorite];
+      await this.articleRepository.save(request.body)
 
-      await this.articleRepository.save(newArticle);
+      const userFave = {
+          userId: request.params.userId,
+          articleId: request.body.id
+      } 
+      await this.favoriteRepository.save(userFave)
 
-      newFavorite.userId = request.params.userId;
-      newFavorite.articleId = newArticle.id;
-      newFavorite.url = newArticle.url;
-      newFavorite.image = newArticle.image;
-      newFavorite.title = newArticle.title;
-
-      return this.favoriteRepository.save(newFavorite);
     } catch (err) {
       console.log("something went wrong");
     }
   }
 
   async all(request: Request, response: Response, next: NextFunction) {
-    const favs = await this.userRepository.findOne(request.params.userId, {
-      relations: ["favorites"],
-    });
-    return favs.favorites;
+    const faves = await this.favoriteRepository.find(
+      {
+     
+        where:{
+        userId:request.params.userId
+      },
+
+      relations:["articles"]
+  });
+   
+//  let arts = faves.reduce()
+let arts =faves.map(e => {
+  return e.articles
+})
+
+    return arts
   }
-//   const question = getRepository(Question);
-// question.categories = question.categories.filter(category => {
-//     return category.id !== categoryToRemove.id
-// })
-//await connection.manager.save(question)
+
   async remove(request: Request, response: Response, next: NextFunction) {
    const favoriteToRemove = await this.favoriteRepository.findOne({
      where:{
        userId: request.params.userId, 
-       articleId: request.params.articleId 
+       articleId: request.params.articleId
     },
    relations:['articles', 'users']
   })

@@ -3,7 +3,7 @@ import { useSaveFavoriteMutation } from "../redux-app/features/favorites/favorit
 
 
 
-export const SingleStory = ({title, description, source, image, url, publishedAt}) => {
+export const SingleStory = ({id,title, description, source, image, url, publishedAt}) => {
 
     const [addNewFavorite, { isLoading }] = useSaveFavoriteMutation()
 
@@ -22,7 +22,7 @@ export const SingleStory = ({title, description, source, image, url, publishedAt
     const onSaveFavoriteClicked = async () => {
           try {
               setDisable(true)
-            await addNewFavorite( {title, description, source, image, url, publishedAt, userId} ).unwrap()
+            await addNewFavorite( {id,title, description, source, image, url, publishedAt, userId} ).unwrap()
            
           } catch (err) {
             console.error('Failed to save the post: ', err)
