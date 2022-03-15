@@ -16,9 +16,9 @@ import { SingleStory } from "./SingleStory";
         <>
         <h1>News</h1>
    
-        {articleData.map((value, key) => (
+        {articleData.map((value) => (
             <SingleStory
-                key={key}
+                key={value.title + value.publishedAt}
                 title={value.title}
                 description={value.description}
                 source={value.source.name}
