@@ -15,11 +15,18 @@ export const favoritesApi = createApi({
           body: initialFavorite
         })
         
+      }),
+      deleteFavorite: builder.mutation({
+        query:({userId, articleId}) => ({
+          url: `${userId}/favorites/${articleId}`,
+          method:'DELETE'
+        })
       })
     })
   })
   
   export const {
     useGetFavoritesQuery,
-    useSaveFavoriteMutation
+    useSaveFavoriteMutation,
+    useDeleteFavoriteMutation
   } = favoritesApi
