@@ -9,8 +9,8 @@ const FavoritesPage = () => {
     return(
         <>
         <h1>Favories</h1>
-        {data.map((fave) => (
-           <div>
+        {data.map((fave, key) => (
+           <div key={key}>
             <h2>{fave.title}</h2>
             <img width="200px"src={fave.image}/>
             <a href={fave.url}>Go to Story</a> 

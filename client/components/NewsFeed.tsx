@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from "../redux-app/hooks"
 import { useGetTopHeadlinesQuery } from "../redux-app/features/news/news-api-slice";
 import { SingleStory } from "./SingleStory";
 
-export const NewsFeed = () => {
+ const NewsFeed = () => {
     const dispatch = useAppDispatch()
     const {data , isFetching} = useGetTopHeadlinesQuery();
 
@@ -16,8 +16,9 @@ export const NewsFeed = () => {
         <>
         <h1>News</h1>
    
-        {articleData.map((value) => (
+        {articleData.map((value, key) => (
             <SingleStory
+                key={key}
                 title={value.title}
                 description={value.description}
                 source={value.source.name}
@@ -30,3 +31,4 @@ export const NewsFeed = () => {
     )
 
 } 
+export default NewsFeed;

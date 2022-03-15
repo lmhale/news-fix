@@ -1,15 +1,29 @@
 import "../styles.css";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import { Link } from "react-router-dom";
 import FavoritesPage from "./FavoritesPage";
 
-import { NewsFeed } from "./NewsFeed";
+import NewsFeed  from "./NewsFeed";
+
+
 const App = () => {
   return (
-    <>
-      <h1>News Fix</h1>
-      <NewsFeed/>
-      <FavoritesPage/>
-    </>
+
+
+<Routes>
+<Route  path="/" element={<NewsFeed/>} />  
+ <Route path="favorites" element={<FavoritesPage/>} />
+</Routes>
+
+
+ 
+
   );
 };
+
 
 export default App;
