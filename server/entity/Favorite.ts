@@ -17,14 +17,14 @@ export class Favorite {
   userId:string
 @PrimaryColumn()
   articleId:string
-@Column()
-url:string
+// @Column()
+// url:string
 
-@Column()
-title:string
+// @Column()
+// title:string
 
-@Column({nullable:true})
-image:string
+// @Column({nullable:true})
+// image:string
 
 
   @ManyToOne(type => User, user => user.favorites, {  primary:true, cascade:true })

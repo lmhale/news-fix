@@ -19,6 +19,7 @@ import { SingleStory } from "./SingleStory";
         {articleData.map((value) => (
             <SingleStory
                 key={value.title + value.publishedAt}
+                id={value.title + value.publishedAt}
                 title={value.title}
                 description={value.description}
                 source={value.source.name}

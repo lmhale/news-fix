@@ -3,6 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const api_key = process.env.API_KEY;
 
  interface Article {
+   id:string,
   source: {
     name: string;
   },
