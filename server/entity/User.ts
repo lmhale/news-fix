@@ -22,7 +22,7 @@ export class User {
   })
   email: string;
 
-  @OneToMany(type => Favorite, favorite => favorite.users, {eager: true})
+  @OneToMany(type => Favorite, favorite => favorite.users)
    favorites: Favorite[]
 
 }
