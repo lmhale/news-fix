@@ -17,7 +17,7 @@ export const SingleStory = ({id,title, description, source, image, url, publishe
     const [disable, setDisable] = React.useState(false);
 //   const [favorite, setFavorite ] = useState<IFavoriteData | undefined> (props)
 
-  const userId = 'ec4c702e-db78-48ca-ae5d-4159c5b5f5d6'
+  const userId = '673b9e18-92a8-4a9e-a934-c73012e215c8'
   
     const onSaveFavoriteClicked = async () => {
           try {

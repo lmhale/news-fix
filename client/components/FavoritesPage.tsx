@@ -2,7 +2,7 @@ import React from "react"
 import {useGetFavoritesQuery, useDeleteFavoriteMutation } from "../redux-app/features/favorites/favorites-api-slice";
 
 const FavoritesPage = () => {
-    const userId = 'ec4c702e-db78-48ca-ae5d-4159c5b5f5d6'
+    const userId = '673b9e18-92a8-4a9e-a934-c73012e215c8'
 
     const {data=[], isFetching, refetch } = useGetFavoritesQuery(userId)
     
