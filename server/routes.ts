@@ -1,8 +1,12 @@
 import {UserController} from "./controller/UserController"; 
+import {AuthController} from "./controller/AuthController"
  import {FavoriteController} from "./controller/FavoriteController"; 
-import {ArticleController} from "./controller/ArticleController"; 
 
 export const Routes = [{ 
+    method: "get",
+    route: "/auth",
+    controller: AuthController, action:"login"
+},{
     method: "get", 
     route: "/users", 
     controller: UserController, action: "all" 
@@ -12,20 +16,12 @@ export const Routes = [{
  }, { 
     method: "post", 
     route: "/users", 
-    controller: UserController, action: "save" 
+    controller: UserController, action: "create" 
  }, { 
     method: "delete", 
     route: "/users/:id", 
     controller: UserController,
     action: "remove" 
-}, {
-    method:"get",
-    route:"/articles",
-    controller: ArticleController, action: "all"
-}, {
-    method:"post",
-    route:"/articles",
-    controller: ArticleController, action:"save"
 },{
     method:"post",
     route:"/:userId/favorites",
