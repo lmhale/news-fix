@@ -1,4 +1,4 @@
-import "../styles.css";
+
 import {
   BrowserRouter,
   Routes,

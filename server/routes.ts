@@ -5,7 +5,7 @@ import verifyJWT from "./middleware/checkAuth";
 
 export const Routes = [{ 
     method: "post",
-    route: "/auth",
+    route: "/login",
     controller: AuthController, action:"login"
 },{
     method: "get", 

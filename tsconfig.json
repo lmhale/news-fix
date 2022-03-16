@@ -16,10 +16,9 @@
     "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */,
     "experimentalDecorators": true,
     "emitDecoratorMetadata":true,
-    "resolveJsonModule": true
-    // "allowJs": true /* Allow javascript files to be compiled. Useful when migr ating JS to TS */,
-    // "checkJs": true /* Report errors in .js files. Works in tandem with allowJs. */,
-    
+    "resolveJsonModule": true,
+  
+  
   },
   // "exclude": ["node_modules"],
   "include": ["client/**/*", "server/**/*", "routes"]

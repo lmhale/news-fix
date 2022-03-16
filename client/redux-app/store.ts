@@ -1,11 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { newsApi } from './features/news/news-api-slice'
 import { favoritesApi } from './features/favorites/favorites-api-slice';
+import { authApi } from './features/users/auth.api.slice';
+import authReducer from './features/users/authslice'
 
 export const store = configureStore({
   reducer: {
     [newsApi.reducerPath]: newsApi.reducer,
-    [favoritesApi.reducerPath]:favoritesApi.reducer
+    [favoritesApi.reducerPath]:favoritesApi.reducer,
+    [authApi.reducerPath]:authApi.reducer,
+    auth:authReducer
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware().concat(newsApi.middleware, favoritesApi.middleware);
