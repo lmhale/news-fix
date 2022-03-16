@@ -8,6 +8,7 @@ import { User } from "./entity/User";
 import { Favorite } from "./entity/Favorite";
 import { Article } from "./entity/Article";
 import path from "path";
+import verifyJWT from "./middleware/checkAuth";
 
 const main = async () => {
   try {
