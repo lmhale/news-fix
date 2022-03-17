@@ -7,11 +7,12 @@ import {
 } from "react-router-dom";
 import { Link } from "react-router-dom";
 import FavoritesPage from "./FavoritesPage";
+import LandingPage from "./LandingPage";
 import { NavBar } from "./NavBar";
 import Login from "./Login";
 import NewsFeed  from "./NewsFeed";
 import { useAuth } from "../redux-app/hooks";
-import { Signup } from "./Signup";
+import { Logout } from "./Logout";
 
 const App = () => {
   
@@ -22,11 +23,14 @@ const App = () => {
 <NavBar/>
 <Routes>
 
- <Route  path="/" element={userId ? <NewsFeed />:  <Navigate replace to ="/login"/>} />  
+ <Route  path="/" element={userId ? <NewsFeed />:  <Navigate replace to ="/loginorsignup"/>} />  
 
  <Route path="favorites" element={<FavoritesPage/>} />
-<Route  path="login" element={ <Login/>} />  
-<Route path="signup" element={<Signup/>} />
+ {/* If you have a userId you can't see this route*/}
+<Route  path="loginorsignup" element={ <LandingPage/>} /> 
+
+<Route path="logout" element={<Logout/>}/>
+
 </Routes>
 </>
 

@@ -13,9 +13,12 @@ const Login = () => {
 const handleSubmit = async(email, passwordHash)=> {
   try {
     const user = await login({email, passwordHash}).unwrap()
-    dispatch(setCredentials(user))
- 
-    navigate("../", { replace: true });
+     dispatch(setCredentials(user))
+     setTimeout(() => {
+      // Delay this action by 2 seconds
+      navigate("../", { replace: true });
+    }, 2000)
+   
   } catch (error) {
     
   }
@@ -24,6 +27,7 @@ const handleSubmit = async(email, passwordHash)=> {
 
   return (
     <div style={{ textAlign: "center" }}>
+      <h2>Login</h2>
       <FormComponent
        onSubmit={({ email, passwordHash }) => {
           console.log(email, passwordHash);
@@ -33,5 +37,13 @@ const handleSubmit = async(email, passwordHash)=> {
     </div>
   );
 };
+
+
+
+
+
+
+
+
 
 export default Login;
