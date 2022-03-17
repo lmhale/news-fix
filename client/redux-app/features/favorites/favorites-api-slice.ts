@@ -6,6 +6,7 @@ export const favoritesApi = createApi({
     endpoints: builder => ({
       getFavorites: builder.query({
         query: (userId) => `${userId}/favorites`
+        
       }),
       saveFavorite: builder.mutation({
         query:({ userId, ...initialFavorite }) => ({

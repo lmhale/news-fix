@@ -24,7 +24,7 @@ publishedAt: Date,
 
 export const newsApi = createApi({
     reducerPath: 'news',
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://newsapi.org/v2/', 
+    baseQuery: fetchBaseQuery({ baseUrl: 'https://newsapi.org/v2/top-headlines', 
     prepareHeaders(headers){
                     headers.set('x-api-key',api_key)
                     return headers; 
@@ -32,7 +32,8 @@ export const newsApi = createApi({
             }),
     endpoints: (builder) => ({
       getTopHeadlines: builder.query<News[], string|void>({
-        query: (country = 'us') => `top-headlines?country=${country}`,
+        query: (category) => ({url:`?country=us&category=${category}`}),
+        
       }),
     }),
   })

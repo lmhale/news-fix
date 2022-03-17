@@ -5,12 +5,12 @@ import { SingleStory } from "./SingleStory";
 
  const NewsFeed = ({}) => {
     const dispatch = useAppDispatch()
-    const {data , isFetching} = useGetTopHeadlinesQuery();
+    const {data , isFetching} = useGetTopHeadlinesQuery('entertainment');
 
     if(isFetching){
         return <h2>Loading ...</h2>
     }
- 
+
     const articleData = data.articles ||[]
     return (
         <>

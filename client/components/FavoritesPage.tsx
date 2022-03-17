@@ -7,7 +7,7 @@ const FavoritesPage = () => {
  
   let UI = localStorage.getItem("userId")
 
-    const {data=[], isFetching, refetch } = useGetFavoritesQuery(UI)
+    const {data=[], isFetching, refetch,  } = useGetFavoritesQuery(UI)
     
     const [deleteFavorite] = useDeleteFavoriteMutation()
    
