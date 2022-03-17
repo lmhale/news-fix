@@ -27,7 +27,7 @@ export class AuthController {
               email
           },'sdkfjdlsfkjldskfjdskl', { expiresIn:'10hr'})
         
-          response.json({token: token})
+          response.json({token: token, user:user.id})
         }
     };
         

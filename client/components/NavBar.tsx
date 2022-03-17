@@ -4,8 +4,8 @@ export const NavBar = () => {
     return (
         <div >
 
-        <a style={{margin:"10px"}} href="/">Home</a>
-        <a href="favorites">Favorites</a>
+        <Link style={{margin:"10px"}} to="/">Home</Link>
+        <Link to="favorites">Favorites</Link>
         <Link style={{margin:"10px"}}  to={"/login"} >Login</Link>
 
         </div>

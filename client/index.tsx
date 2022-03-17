@@ -10,7 +10,7 @@ ReactDom.render(
   <Provider store={store}> 
   <BrowserRouter>
   <CssBaseline/>
-  <NavBar/>
+
   <App />
   </BrowserRouter>
    

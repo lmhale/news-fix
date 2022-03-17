@@ -12,7 +12,7 @@ export const store = configureStore({
     auth:authReducer
   },
   middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat(newsApi.middleware, favoritesApi.middleware);
+    return getDefaultMiddleware().concat(newsApi.middleware, favoritesApi.middleware, authApi.middleware);
   }
 })
 

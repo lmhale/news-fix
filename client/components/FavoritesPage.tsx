@@ -1,19 +1,22 @@
 import React from "react"
+import { useAuth } from "../redux-app/hooks";
 import {useGetFavoritesQuery, useDeleteFavoriteMutation } from "../redux-app/features/favorites/favorites-api-slice";
 
 const FavoritesPage = () => {
-    const userId = '673b9e18-92a8-4a9e-a934-c73012e215c8'
+    
+ 
+  let UI = localStorage.getItem("userId")
 
-    const {data=[], isFetching, refetch } = useGetFavoritesQuery(userId)
+    const {data=[], isFetching, refetch } = useGetFavoritesQuery(UI)
     
     const [deleteFavorite] = useDeleteFavoriteMutation()
    
     console.log(data)
 
-    const onDeletFavoriteClicked = async (userId, articleId) => {
+    const onDeletFavoriteClicked = async ( articleId) => {
         try {
-          
-          await deleteFavorite({userId, articleId} ).unwrap()
+          console.log("UI", UI, "AI",articleId)
+          await deleteFavorite( {userId:UI, articleId:articleId} ).unwrap()
           refetch()
          
         } catch (err) {
@@ -29,7 +32,7 @@ const FavoritesPage = () => {
             <h2>{fave.title}</h2>
             <img width="200px"src={fave.image}/>
             <a href={fave.url}>Go to Story</a> 
-            <button onClick={()=>onDeletFavoriteClicked(userId,fave.id)}>Remove From Favorites</button>
+            <button onClick={()=>onDeletFavoriteClicked(fave.id)}>Remove From Favorites</button>
            </div>
             
             ))}

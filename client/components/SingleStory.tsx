@@ -1,12 +1,14 @@
 import React, {useState} from "react";
-import { useSaveFavoriteMutation } from "../redux-app/features/favorites/favorites-api-slice";
+import { useSaveFavoriteMutation, useGetFavoritesQuery } from "../redux-app/features/favorites/favorites-api-slice";
 
 
 
 export const SingleStory = ({id,title, description, source, image, url, publishedAt}) => {
 
     const [addNewFavorite, { isLoading }] = useSaveFavoriteMutation()
-
+  id = id.replace(/\\/g, '')
+  console.log("newID", id)
+  const userId = localStorage.getItem("userId")
     //     interface IFavoriteData {
 //     title: "string";
 //     description: "string";
@@ -17,13 +19,13 @@ export const SingleStory = ({id,title, description, source, image, url, publishe
     const [disable, setDisable] = React.useState(false);
 //   const [favorite, setFavorite ] = useState<IFavoriteData | undefined> (props)
 
-  const userId = '673b9e18-92a8-4a9e-a934-c73012e215c8'
+  
   
     const onSaveFavoriteClicked = async () => {
           try {
               setDisable(true)
-            await addNewFavorite( {id,title, description, source, image, url, publishedAt, userId} ).unwrap()
-           
+            await addNewFavorite( {userId, id,title, description, source, image, url, publishedAt, } ).unwrap()
+          
           } catch (err) {
             console.error('Failed to save the post: ', err)
           }
