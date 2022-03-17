@@ -20,7 +20,7 @@ const App = () => {
  console.log(userId)
   return (
 <>
-<NavBar/>
+  <NavBar/>
 <Routes>
 
  <Route  path="/" element={userId ? <NewsFeed />:  <Navigate replace to ="/loginorsignup"/>} />  

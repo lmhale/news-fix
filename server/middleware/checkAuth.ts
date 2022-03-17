@@ -11,10 +11,10 @@ export const verifyJWT = async (request: Request, response: Response, next: Next
     try {
       let   jwtPayload = jwt.verify(token, process.env.SECRET) as any
          response.locals.jwtPayload = jwtPayload;
+         console.log("VERIFIED")
         next()
     } catch (error) {
         response.status(401).send("Not a valid token")
     }
     
 }
-export default verifyJWT

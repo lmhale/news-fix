@@ -1,12 +1,13 @@
 import {UserController} from "./controller/UserController"; 
 import {AuthController} from "./controller/AuthController"
  import {FavoriteController} from "./controller/FavoriteController"; 
-import verifyJWT from "./middleware/checkAuth";
+import {verifyJWT} from "./middleware/checkAuth";
 
 export const Routes = [{ 
     method: "post",
     route: "/login",
-    controller: AuthController, action:"login"
+    verifyJWT,
+    controller:  AuthController, action:"login"
 },{
     method: "get", 
     route: "/users", 
@@ -30,6 +31,7 @@ export const Routes = [{
 }, {
     method: "get",
     route: "/:userId/favorites",
+    verifyJWT,
     controller: FavoriteController, action:"all"
 },{
     method:"delete",

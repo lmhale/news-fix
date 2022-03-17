@@ -2,10 +2,11 @@ import { NextFunction, Request, Response } from "express";
 import { User } from "../entity/User";
 import { getRepository } from "typeorm";
 import * as jwt from "jsonwebtoken"
+import {verifyJWT} from "../middleware/checkAuth";
 
 export class AuthController { 
      userRepository = getRepository(User);
-     async login(request: Request, response: Response) {
+     async login( request: Request, response: Response ) {
           const { email, passwordHash } = request.body;
          
           
@@ -18,6 +19,8 @@ export class AuthController {
           if (!user) {
             return response.status(404).send("Incorrect username or password");
           }
+
+
           // Check if encrypted password match
           if (!user.checkIfPasswordIsValid(passwordHash)) {
             return response.status(404).send("Incorrect username or password");
@@ -25,7 +28,7 @@ export class AuthController {
           
           const token = await jwt.sign({
               email
-          },'sdkfjdlsfkjldskfjdskl', { expiresIn:'10hr'})
+          },process.env.SECRET, { expiresIn:'10hr'})
         
           response.json({token: token, user:user.id})
         }

@@ -6,7 +6,7 @@ import { useSaveFavoriteMutation, useGetFavoritesQuery } from "../redux-app/feat
 export const SingleStory = ({id,title, description, source, image, url, publishedAt}) => {
 
     const [addNewFavorite, { isLoading }] = useSaveFavoriteMutation()
-  id = id.replace(/\\/g, '')
+  id = id.replace(/[^a-zA-Z0-9 ]/g, '')
   console.log("newID", id)
   const userId = localStorage.getItem("userId")
     //     interface IFavoriteData {
