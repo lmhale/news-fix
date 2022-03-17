@@ -11,12 +11,12 @@ import { NavBar } from "./NavBar";
 import Login from "./Login";
 import NewsFeed  from "./NewsFeed";
 import { useAuth } from "../redux-app/hooks";
-
+import { Signup } from "./Signup";
 
 const App = () => {
   
  let userId = localStorage.getItem("userId")
- 
+ console.log(userId)
   return (
 <>
 <NavBar/>
@@ -25,7 +25,8 @@ const App = () => {
  <Route  path="/" element={userId ? <NewsFeed />:  <Navigate replace to ="/login"/>} />  
 
  <Route path="favorites" element={<FavoritesPage/>} />
-<Route  path="Login" element={<Login/>} />  
+<Route  path="login" element={ <Login/>} />  
+<Route path="signup" element={<Signup/>} />
 </Routes>
 </>
 

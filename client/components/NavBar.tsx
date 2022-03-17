@@ -1,12 +1,13 @@
 import React from "react"
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 export const NavBar = () => {
+    const navigate = useNavigate()
     return (
         <div >
 
-        <Link style={{margin:"10px"}} to="/">Home</Link>
-        <Link to="favorites">Favorites</Link>
-        <Link style={{margin:"10px"}}  to={"/login"} >Login</Link>
+        <a style={{margin:"10px"}} href="/"  >Home</a>
+        <a href="favorites">Favorites</a>
+        <a style={{margin:"10px"}} href="/login" >Login</a>
 
         </div>
     )

@@ -45,6 +45,7 @@ export const authApi = createApi({
     protected: builder.mutation<{ message: string }, void>({
       query: () => 'protected',
     }),
+    
   }),
 })
 
