@@ -1,9 +1,9 @@
 import React from "react";
-import { FormComponent } from "./FormComponent";
-import { useLoginMutation } from "../redux-app/features/users/auth.api.slice";
+import { FormComponent } from "../../components/FormComponent";
+import { useLoginMutation } from "./redux/auth.api.slice";
 import  {useNavigate}  from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { setCredentials } from '../redux-app/features/users/authslice'
+import { setCredentials } from './redux/authslice'
 
 const Login = () => {
   const dispatch = useDispatch()

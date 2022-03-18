@@ -1,6 +1,6 @@
 import React from "react"
-import { useAuth } from "../redux-app/hooks";
-import {useGetFavoritesQuery, useDeleteFavoriteMutation } from "../redux-app/features/favorites/favorites-api-slice";
+import { useAuth } from "../../utils/hooks";
+import {useGetFavoritesQuery, useDeleteFavoriteMutation } from "./redux/favorites-api-slice";
 
 const FavoritesPage = () => {
     

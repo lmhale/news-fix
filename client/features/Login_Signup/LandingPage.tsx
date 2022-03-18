@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Signup from "./Signup";
-import Login from "./Login";
+import Login from "./Login"
 
 const LandingPage = () => {
   const [memberStatus, setMemberStatus] = useState(true);

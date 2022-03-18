@@ -1,10 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router";
-import { Logout } from "./Logout"
-import { FormComponent } from "./FormComponent";
+import { Logout } from "../../components/Logout"
+import { FormComponent } from "../../components/FormComponent";
 import { useDispatch } from 'react-redux'
-import { setCredentials } from '../redux-app/features/users/authslice'
-import { useSignupMutation } from "../redux-app/features/users/auth.api.slice";
+import { setCredentials } from './redux/authslice'
+import { useSignupMutation } from "./redux/auth.api.slice";
 
 const Signup = () => {
     const dispatch = useDispatch()

@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const api_key = process.env.API_KEY;
 
- interface Article {
+export interface Article {
    id:string,
   source: {
     name: string;
@@ -16,11 +16,11 @@ urlToImage: string,
 publishedAt: Date,
 }
 
- interface News {
-  status:"ok",
-  totalResults:number,
-  articles: Article[] 
-}
+//  interface News {
+//   status:"ok",
+//   totalResults:number,
+//   articles: Article[] 
+// }
 
 export const newsApi = createApi({
     reducerPath: 'news',
@@ -31,9 +31,11 @@ export const newsApi = createApi({
                 } 
             }),
     endpoints: (builder) => ({
-      getTopHeadlines: builder.query<News[], string|void>({
+      getTopHeadlines: builder.query<Article, string|void>({
         query: (category) => ({url:`?country=us&category=${category}`}),
-        
+        transformResponse:(data:{articles: Article}) => {
+          return data.articles
+        },
       }),
     }),
   })

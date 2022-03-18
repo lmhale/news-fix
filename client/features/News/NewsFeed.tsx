@@ -1,7 +1,7 @@
 import React from "react";
-import { useAppDispatch, useAppSelector } from "../redux-app/hooks";
-import { useGetTopHeadlinesQuery } from "../redux-app/features/news/news-api-slice";
-import { SingleStory } from "./SingleStory";
+import { useAppDispatch, useAppSelector } from "../../utils/hooks";
+import { useGetTopHeadlinesQuery } from "./redux/news-api-slice";
+import { SingleStory } from "../../components/SingleStory";
 
 
 const NewsFeed = ({cat}) => {

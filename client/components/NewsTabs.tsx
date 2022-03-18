@@ -3,8 +3,9 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import {Box, Container} from "@mui/material";
-import { useGetTopHeadlinesQuery } from "../redux-app/features/news/news-api-slice";
-import NewsFeed from "./NewsFeed";
+import { useGetTopHeadlinesQuery } from "../features/News/redux/news-api-slice";
+import NewsFeed from "../features/News/NewsFeed";
+import {GetNewsData} from '../features/News/NewsLogic'
 
 function a11yProps(index: number) {
   return {
@@ -14,6 +15,8 @@ function a11yProps(index: number) {
 }
 
 export default function NewsTabs() {
+
+
   const tabCategories = {
     0: "general",
     1: "business",
@@ -25,27 +28,22 @@ export default function NewsTabs() {
   };
   const [selectedTab, setSelectedTab] = React.useState(0);
 
-  let category = tabCategories[selectedTab];
+  let decodedCategory = 
+  tabCategories[selectedTab];
+
+  
+
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setSelectedTab(newValue);
-  };
+  }
+
 
   return (
-    <Container
-      sx={{
-        // flexGrow: 1,
-        flexDirection:'row',
-        bgcolor: "background.paper",
-        display: "flex",
-        marginTop:"20px",
-      
-      }}
-    >
+  <>
       <Box sx={{
         width:'20%',
         height:'100vh',
         marginTop: '15px'
-      
       }}>
       <Tabs
         orientation="vertical"
@@ -70,9 +68,11 @@ export default function NewsTabs() {
         marginLeft:'10px',
         padding:'15px'
       }}>
-        <NewsFeed cat={category} />
+     
+      <GetNewsData category={decodedCategory} />
+      
       </Box>
 
-    </Container>
+    </>
   );
 }

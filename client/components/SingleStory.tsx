@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { useSaveFavoriteMutation, useGetFavoritesQuery } from "../redux-app/features/favorites/favorites-api-slice";
+import { useSaveFavoriteMutation, useGetFavoritesQuery } from "../features/Favorites/redux/favorites-api-slice";
 
 import { Box, Container, List } from "@mui/material";
 import { textAlign } from "@mui/system";

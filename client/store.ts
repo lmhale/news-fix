@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { newsApi } from './features/news/news-api-slice'
-import { favoritesApi } from './features/favorites/favorites-api-slice';
-import { authApi } from './features/users/auth.api.slice';
-import authReducer from './features/users/authslice'
+import { newsApi } from './features/News/redux/news-api-slice'
+import { favoritesApi } from './features/Favorites/redux/favorites-api-slice';
+import { authApi } from './features/Login_Signup/redux/auth.api.slice';
+import authReducer from './features/Login_Signup/redux/authslice'
 
 export const store = configureStore({
   reducer: {

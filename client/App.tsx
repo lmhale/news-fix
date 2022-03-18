@@ -6,14 +6,14 @@ import {
   Navigate
 } from "react-router-dom";
 import { Link } from "react-router-dom";
-import FavoritesPage from "./FavoritesPage";
-import LandingPage from "./LandingPage";
-import { NavBar } from "./NavBar";
-import Login from "./Login";
-import NewsFeed  from "./NewsFeed";
-import { useAuth } from "../redux-app/hooks";
-import { Logout } from "./Logout";
-import NewsTabs from "./NewsTabs"
+import FavoritesPage from "./features/Favorites/FavoritesPage";
+import LandingPage from "./features/Login_Signup/LandingPage"
+import { NavBar } from "./components/NavBar";
+import Login from "./features/Login_Signup/Login";
+import NewsFeed  from "./features/News/NewsFeed";
+import { useAuth } from "./utils/hooks";
+import { Logout } from "./components/Logout";
+import {NewsPage} from "./features/News/NewsPage"
 const App = () => {
   
  let userId = localStorage.getItem("userId")
@@ -23,7 +23,7 @@ const App = () => {
   <NavBar/>
 <Routes>
 
- <Route  path="/" element={userId ? <NewsTabs />:  <Navigate replace to ="/loginorsignup"/>} />  
+ <Route  path="/" element={userId ? <NewsPage />:  <Navigate replace to ="/loginorsignup"/>} />  
 
  <Route path="favorites" element={<FavoritesPage/>} />
  {/* If you have a userId you can't see this route*/}
