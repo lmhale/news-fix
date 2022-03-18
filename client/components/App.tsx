@@ -13,7 +13,7 @@ import Login from "./Login";
 import NewsFeed  from "./NewsFeed";
 import { useAuth } from "../redux-app/hooks";
 import { Logout } from "./Logout";
-
+import NewsTabs from "./NewsTabs"
 const App = () => {
   
  let userId = localStorage.getItem("userId")
@@ -23,7 +23,7 @@ const App = () => {
   <NavBar/>
 <Routes>
 
- <Route  path="/" element={userId ? <NewsFeed />:  <Navigate replace to ="/loginorsignup"/>} />  
+ <Route  path="/" element={userId ? <NewsTabs />:  <Navigate replace to ="/loginorsignup"/>} />  
 
  <Route path="favorites" element={<FavoritesPage/>} />
  {/* If you have a userId you can't see this route*/}
