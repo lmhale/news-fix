@@ -30,7 +30,7 @@ const FavoritesPage = () => {
         {data.map((fave, key) => (
            <div key={fave.id}>
             <h2>{fave.title}</h2>
-            <img width="200px"src={fave.image}/>
+            <img width="200px"src={fave.urlToImage}/>
             <a href={fave.url}>Go to Story</a> 
             <button onClick={()=>onDeletFavoriteClicked(fave.id)}>Remove From Favorites</button>
            </div>

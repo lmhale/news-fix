@@ -15,12 +15,10 @@ const userId = localStorage.getItem("userId")
 export const GetNewsData: FC<any> = ({category}):JSX.Element => {
 const { data=[], isFetching } = useGetTopHeadlinesQuery(category);
 
-console.log(data)
-
 
 return  (
     <>
-    <NewsList data={data}/>
+    <NewsList data={data} />
     </>
 )
 
@@ -31,19 +29,21 @@ return  (
 
 
 
-export const SaveFavoritesData= (props:ArticleProps) => {
-    const [disable, setDisable] = React.useState(false);
-    const [addNewFavorite, { isLoading }] = useSaveFavoriteMutation()
+// export const SaveFavoritesData= (props:ArticleProps) => {
+//     const [disable, setDisable] = React.useState(false);
+//     const [addNewFavorite, { isLoading }] = useSaveFavoriteMutation()
    
-   const addToFavorites = async(): Promise<void> => {
-        try {
-            await addNewFavorite({userId:userId,favorites:props.articles}).unwrap()
-        } catch (error) {
-            console.error('Failed to save the post: ', error)
-        }
-    }
-    return {addToFavorites}
-}
+//    const addToFavorites = async(): Promise<void> => {
+//         try {
+//             await addNewFavorite({userId:userId,favorites:props.articles}).unwrap()
+//         } catch (error) {
+//             console.error('Failed to save the post: ', error)
+//         }
+//     }
+//     return (
+//         <NewsList favorites={addToFavorites}/>
+//     )
+// }
 
 
 

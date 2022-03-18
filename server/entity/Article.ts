@@ -30,7 +30,7 @@ export enum CategoryType {
     @Column({
         nullable: true,
     })
-    image: string;
+    urlToImage: string;
   
     @Column()
     source: string;
