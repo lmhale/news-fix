@@ -10,10 +10,10 @@ import FavoritesPage from "./features/Favorites/FavoritesPage";
 import LandingPage from "./features/Login_Signup/LandingPage"
 import { NavBar } from "./components/NavBar";
 import Login from "./features/Login_Signup/Login";
-import NewsFeed  from "./features/News/NewsFeed";
 import { useAuth } from "./utils/hooks";
 import { Logout } from "./components/Logout";
 import {NewsPage} from "./features/News/NewsPage"
+
 const App = () => {
   
  let userId = localStorage.getItem("userId")

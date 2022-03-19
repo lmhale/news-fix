@@ -5,6 +5,7 @@ import { FormComponent } from "../../components/FormComponent";
 import { useDispatch } from 'react-redux'
 import { setCredentials } from './redux/authslice'
 import { useSignupMutation } from "./redux/auth.api.slice";
+import { Typography } from "@mui/material";
 
 const Signup = () => {
     const dispatch = useDispatch()
@@ -27,7 +28,7 @@ const Signup = () => {
       }
     return(
         <div style={{ textAlign: "center" }}>
-            <h1>Signup</h1>
+        <Typography sx={{padding:4, fontWeight:500}} variant='h4'>Sign Up</Typography>
         <FormComponent
          onSubmit={({ email, passwordHash }) => {
             console.log(email, passwordHash);

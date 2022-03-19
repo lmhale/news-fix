@@ -1,5 +1,5 @@
 import * as React from "react";
-import { TextField, Button } from "@mui/material";
+import { TextField, Button} from "@mui/material";
 import { Form, Formik } from "formik";
 
 
@@ -14,16 +14,17 @@ interface Props {
 
 export const FormComponent: React.FC<Props> = ({onSubmit}) => {
   return (
-
+    <>
+  
     <Formik initialValues={{email:'', passwordHash:''}} onSubmit={values => {
         onSubmit(values)
     }}
     >
       {({values, handleChange, handleBlur}) => (
-      
+        
         <Form>
-         
-          <TextField 
+          
+          <TextField
           placeholder="email"
           name="email"
           value={values.email}
@@ -32,6 +33,7 @@ export const FormComponent: React.FC<Props> = ({onSubmit}) => {
           />
           <div>
              <TextField 
+             sx={{margin:1}}
              placeholder="password"
           name="passwordHash"
           value={values.passwordHash}
@@ -40,11 +42,14 @@ export const FormComponent: React.FC<Props> = ({onSubmit}) => {
           />
         
           </div>
-          <Button variant="contained"type="submit">Submit</Button>
+          <Button sx={{margin:1}} variant="contained"type="submit">Submit</Button>
+     
         </Form>
-    
-      )}
-    </Formik>
       
+      )}
+     
+    </Formik>
+   
+    </>
   );
 };

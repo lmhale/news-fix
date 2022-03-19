@@ -1,25 +1,28 @@
 import React, { useState } from "react";
 import Signup from "./Signup";
 import Login from "./Login"
-
+import { Paper, Button, Box, Typography } from "@mui/material";
 const LandingPage = () => {
   const [memberStatus, setMemberStatus] = useState(true);
 
   return (
-    <>
+    <Paper sx={{padding:6}}>
       {memberStatus ? (
-        <div style={{ textAlign: "center" }}>
-          <Login /> <p>Not a Registered User?</p>
-          <a onClick={() => setMemberStatus(false)}>Signup</a>
-        </div>
+        <Box sx={{ textAlign: "center" }}>
+          <Login /> 
+          <Typography variant='overline'>Not a Registered User?</Typography>
+          <Button onClick={() => setMemberStatus(false)}>Signup</Button>
+        </Box>
       ) : (
-          <div style={{ textAlign: "center" }}>
+        <Box sx={{textAlign:'center'}} >
         <Signup />
-        <p>Already Have an Account?</p>
-        <a onClick={() => setMemberStatus(true)}>Login</a>
-        </div>
+        <Typography variant='overline'>Already Have an Account?</Typography>
+        <Button onClick={() => setMemberStatus(true)}>Login</Button>
+        </Box>
+       
+       
       )}
-    </>
+    </Paper>
   );
 };
 

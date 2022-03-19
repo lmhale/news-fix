@@ -4,7 +4,6 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import {Box, Container} from "@mui/material";
 import { useGetTopHeadlinesQuery } from "../features/News/redux/news-api-slice";
-import NewsFeed from "../features/News/NewsFeed";
 import {GetNewsData} from '../features/News/NewsLogic'
 
 function a11yProps(index: number) {
@@ -48,12 +47,13 @@ export default function NewsTabs() {
       <Tabs
         orientation="vertical"
         variant="scrollable"
+        indicatorColor='secondary'
         value={selectedTab}
         onChange={handleChange}
         aria-label="Vertical tabs example"
         sx={{ borderRight: 1, borderColor: "divider" }}
       >
-        <Tab label="general" {...a11yProps(0)} />
+        <Tab  label="general" {...a11yProps(0)} />
         <Tab label="business" {...a11yProps(1)} />
         <Tab label="technology" {...a11yProps(2)} />
         <Tab label="health" {...a11yProps(3)} />

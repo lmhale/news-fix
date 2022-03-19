@@ -1,13 +1,16 @@
 import { useNavigate } from "react-router"
-export const Logout =() => {
+import { Button } from "@mui/material"
+export const Logout = () => {
     const navigate = useNavigate()
     const handleLogout = () => {
-       localStorage.removeItem("userId")
-       navigate("../loginorsignup", { replace: true });
+        localStorage.removeItem("userId")
+        navigate("../loginorsignup", { replace: true });
     }
     return (
-        <>
-        <button onClick={()=> handleLogout()}>Logout</button>
-        </>
+        <div style={{ textAlign: 'center', marginTop: '15%' }}>
+            <Button variant='outlined' onClick={() => handleLogout()}>Logout</Button>
+        </div>
+
+
     )
 }

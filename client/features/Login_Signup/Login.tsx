@@ -4,6 +4,7 @@ import { useLoginMutation } from "./redux/auth.api.slice";
 import  {useNavigate}  from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { setCredentials } from './redux/authslice'
+import { Typography } from "@mui/material";
 
 const Login = () => {
   const dispatch = useDispatch()
@@ -27,7 +28,7 @@ const handleSubmit = async(email, passwordHash)=> {
 
   return (
     <div style={{ textAlign: "center" }}>
-      <h2>Login</h2>
+      <Typography sx={{padding:4, fontWeight:500}} variant='h4'>Login</Typography>
       <FormComponent
        onSubmit={({ email, passwordHash }) => {
           console.log(email, passwordHash);
