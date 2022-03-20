@@ -27,7 +27,6 @@ const App = () => {
  {/* <Route  path="/" element={userId ? <NewsPage />:  <Navigate replace to ="/loginorsignup"/>} />   */}
 <Route path="/" element={<NewsPage/>} />
  <Route path="favorites" element={<FavoritesPage/>} />
- {/* If you have a userId you can't see this route*/}
 <Route  path="loginorsignup" element={ <LandingPage/>} /> 
 
 <Route path="logout" element={<Logout/>}/>

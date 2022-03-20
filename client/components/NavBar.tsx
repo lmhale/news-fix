@@ -9,20 +9,21 @@ export const NavBar = () => {
   return (
     <> 
    
-
-         <AppBar  position='static'>
-      
-          <Toolbar sx={{justifyContent: 'flex-end' }}>
-          <Button size='large' sx={{ marginRight:2, fontWeight:800}} color='secondary'  href="/">
-            Home
-          </Button>
-          <Button size='large' sx={{ marginRight:2, fontWeight:600}} color='secondary' href="favorites">Favorites</Button>
-          <Button size='large' sx={{fontWeight:600}} color='secondary' href="/logout">Logout</Button>
-          </Toolbar>
-         
-     </AppBar>
-   
- 
-   </>
-  );
+    {userId ? (
+       <AppBar  position='static'>
+    
+        <Toolbar sx={{justifyContent: 'flex-end' }}>
+        <Button size='large' sx={{ marginRight:2, fontWeight:800}} color='secondary'  href="/">
+          Home
+        </Button>
+        <Button size='large' sx={{ marginRight:2, fontWeight:600}} color='secondary' href="favorites">Favorites</Button>
+        <Button size='large' sx={{fontWeight:600}} color='secondary' href="/logout">Logout</Button>
+        </Toolbar>
+       
+   </AppBar>
+    ) : (
+      <div></div>
+    )}
+ </>
+);
 };

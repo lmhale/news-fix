@@ -16,7 +16,6 @@ const Signup = () => {
     const handleSubmit = async(email, passwordHash)=> {
           const user = await signup({email, passwordHash})
           .unwrap()
-          // .then((payload) =>  await dispatch(setCredentials(payload)))
           .then((payload) => {
             let resToken = payload.token
             let resId = payload.userId
@@ -25,6 +24,7 @@ const Signup = () => {
             localStorage.setItem('userId',resId )
             dispatch(setCredentials(payload))
             })
+            .then(() => navigate("../", { replace: true }))
           .catch((error) => {
             console.log('rejected', error)
             let ErrorMessage = error.data.toString()
