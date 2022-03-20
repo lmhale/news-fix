@@ -59,7 +59,7 @@ In order to simplify the data querying process I created a custom join table Fav
  `/:userId/favorites` 
 
  This route is pivotal to the app because it associates a user with an article in the Articles table. 
- Here is what happens after a user clicks the 'Add to Favorites' button. \
+ Here is what happens after a user clicks the 'Add to Favorites' button. 
  1. RTK query posts data to our API endpoint.
 The request object contains the users Id (put in local storage upon logging in), and the news articles information including its Id.
     ![NewsList Snippet](screenshots/NewsListQuery.png)
@@ -79,7 +79,7 @@ The request object contains the users Id (put in local storage upon logging in),
  ### Frontend routes
   `loginorsignup` - renders a landing page with a form for signing up or logging in. Form state is handled by Formik 
 
-`/` - the home route renders the life news feed which is pulled in from the [News API](https://newsapi.org/docs)
+`/` - the home route renders the live news feed which is pulled in from the [News API](https://newsapi.org/docs)
  
  `favorties` - renders a page populated with a logged in users favorires pulled in from a backend API call.
 
