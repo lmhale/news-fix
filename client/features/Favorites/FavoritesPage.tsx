@@ -7,7 +7,8 @@ import { useGetFavoritesQuery, useDeleteFavoriteMutation } from "./redux/favorit
 const FavoritesPage = () => {
 
 
-  let UI = localStorage.getItem("userId")
+  let UI = localStorage.getItem('userId')
+  console.log(UI)
 
   const { data = [], isFetching, refetch, } = useGetFavoritesQuery(UI)
 

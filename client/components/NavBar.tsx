@@ -9,7 +9,7 @@ export const NavBar = () => {
   return (
     <> 
    
-      {userId ? (
+
          <AppBar  position='static'>
       
           <Toolbar sx={{justifyContent: 'flex-end' }}>
@@ -21,9 +21,8 @@ export const NavBar = () => {
           </Toolbar>
          
      </AppBar>
-      ) : (
-        <div></div>
-      )}
+   
+ 
    </>
   );
 };

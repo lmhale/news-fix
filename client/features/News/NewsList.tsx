@@ -1,4 +1,5 @@
 import {  Typography, Link, Box, CardMedia, CardContent, CardActions, Button, Card } from "@mui/material";
+import { useAuth } from "../../utils/hooks";
 import { useSaveFavoriteMutation} from "../Favorites/redux/favorites-api-slice";
 import React from "react";
 
@@ -7,11 +8,11 @@ const NewsList = ({data}) => {
     const userId = localStorage.getItem("userId")
     const [disable, setDisable] = React.useState(false);
     const [addNewFavorite, { isLoading }] = useSaveFavoriteMutation()
-    
+
     const addToFavorites = async({description, title, url, urlToImage, publishedAt, source}) => {
         try {
-        let id = (title + publishedAt).replace(/[^a-zA-Z0-9 ]/g, '')
-        
+        // let id = title + publishedAt.replace(/[^a-zA-Z0-9 ]/g, '')
+          let id = title + publishedAt
             await addNewFavorite({userId:userId,title, id,url, urlToImage, description, source, publishedAt  }).unwrap()
           
         } catch (error) {

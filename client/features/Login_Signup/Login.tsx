@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { FormComponent } from "../../components/FormComponent";
 import { useLoginMutation } from "./redux/auth.api.slice";
 import  {useNavigate}  from 'react-router-dom'
@@ -10,19 +10,27 @@ const Login = () => {
   const dispatch = useDispatch()
   let navigate = useNavigate()
   const [login, { isLoading }] = useLoginMutation()
+  const [loginError, setLoginError] = useState('')
 
 const handleSubmit = async(email, passwordHash)=> {
-  try {
+
     const user = await login({email, passwordHash}).unwrap()
-     dispatch(setCredentials(user))
-     setTimeout(() => {
-      // Delay this action by 2 seconds
-      navigate("../", { replace: true });
-    }, 2000)
-   
-  } catch (error) {
-    
-  }
+    .then((payload) => {
+    let resToken = payload.token
+    let resId = payload.user
+    console.log(resToken)
+    localStorage.setItem('token', resToken)
+    localStorage.setItem('userId',resId )
+    dispatch(setCredentials(payload))
+    })
+    .then(() => navigate("../", { replace: true }))
+    .catch((error) => {
+      console.error('rejected', error)
+      let ErrorMessage = error.data.toString()
+      setLoginError(ErrorMessage)
+    })
+
+
    
 }
 
@@ -35,6 +43,14 @@ const handleSubmit = async(email, passwordHash)=> {
           handleSubmit(email, passwordHash)
         }}
       />
+      {loginError ?(
+            <Typography color='red' variant='caption'>
+            Error: {loginError}
+            </Typography>
+      ) : ('success')
+      
+      }
+  
     </div>
   );
 };

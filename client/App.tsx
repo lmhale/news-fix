@@ -16,15 +16,16 @@ import {NewsPage} from "./features/News/NewsPage"
 
 const App = () => {
   
- let userId = localStorage.getItem("userId")
+ let userId = localStorage.getItem('userId')
+
  console.log(userId)
   return (
 <>
   <NavBar/>
 <Routes>
 
- <Route  path="/" element={userId ? <NewsPage />:  <Navigate replace to ="/loginorsignup"/>} />  
-
+ {/* <Route  path="/" element={userId ? <NewsPage />:  <Navigate replace to ="/loginorsignup"/>} />   */}
+<Route path="/" element={<NewsPage/>} />
  <Route path="favorites" element={<FavoritesPage/>} />
  {/* If you have a userId you can't see this route*/}
 <Route  path="loginorsignup" element={ <LandingPage/>} /> 

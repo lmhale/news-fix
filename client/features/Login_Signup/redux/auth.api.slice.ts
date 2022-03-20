@@ -25,10 +25,10 @@ export const authApi = createApi({
     baseUrl: 'http://localhost:3000',
     prepareHeaders: (headers, { getState }) => {
       // By default, if we have a token in the store, let's use that for authenticated requests
-      const token = (getState() as RootState).auth.token
+      const token = localStorage.getItem('token')
 
       if (token) {
-        headers.set('authorization', `Bearer ${token}`)
+        headers.set('x-access-token', token)
      
       }
       return headers
@@ -52,6 +52,7 @@ export const authApi = createApi({
         body: userInfo,
       }),
     })
+    
   }),
 })
 
