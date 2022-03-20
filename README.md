@@ -14,6 +14,10 @@ News Fix is an app that gives a user the ability to see real time top news stori
 - Redux Toolkit
 - News API
 
+### Instructions
+
+News Fix is deployed on heroku[here](https://news-fix.herokuapp.com/)
+
 # Architecture
 
 I utilized a Model View Controller architectural pattern to structure my app.
