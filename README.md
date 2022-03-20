@@ -16,7 +16,7 @@ News Fix is an app that gives a user the ability to see real time top news stori
 
 ### Instructions
 
-News Fix is deployed on heroku[here](https://news-fix.herokuapp.com/)
+News Fix is deployed on heroku [here](https://news-fix.herokuapp.com/)
 
 # Architecture
 
