@@ -91,7 +91,7 @@ The request object contains the users Id (put in local storage upon logging in),
 1. When you open the app you will be shown a Login Page. \
      If you have an account you can enter your email and password, otherwise you can click the SignUp link which will direct you to a sign up form.
 
-    ![Login](screenshots/Login.png)
+    ![Login](screenshots/LoginPage.png)
 
   
 2. After you click submit you will be redirected to a News Feed which shows you the top headlines in the United States from multiple sources.\
