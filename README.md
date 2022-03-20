@@ -3,7 +3,7 @@
 ## Description
 News Fix is an app that gives a user the ability to see real time top news stories, which can be filtered by categories. A user can also save articles of interest to their accounts favorites, as well as delete them once they are done reading.
 
-## Technologies
+### Technologies
 - Express
 - Node.js
 - React
@@ -40,5 +40,33 @@ My controllers serve as the go between from my frontend views and my database.
 - Auth Controller
 - Favorites Controller
 
+## Server Side Overview
 
+### Enitity Relationships
+many to many relationship
 
+### API Endpoints
+#### GET
+ `/:userId/favorites`
+ #### POST
+  `/login` \
+ `/signup` \
+ `/:userId/favorites`
+ #### DELETE    
+`/:userId/favorites/:articleId`
+
+## Client Side Overview
+ 
+ ### Frontend routes
+  `loginorsignup` - renders a landing page with a form for signing up or logging in. Form state is handled by Formik 
+
+`/` - the home route renders the life news feed which is pulled in from the [News API](https://newsapi.org/docs)
+ 
+ `favorties` - renders a page populated with a logged in users favorires pulled in from a backend API call.
+
+`logout` - renders a button to logout and redirect the user back to the landing page.
+
+### MUI Components
+- Tabs
+- Cards
+- AppBar 
