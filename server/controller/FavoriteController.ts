@@ -6,20 +6,14 @@ import { Favorite } from "../entity/Favorite";
 
 
 class FavoriteController {
-  favoriteRepository = getRepository(Favorite);
-  articleRepository = getRepository(Article);
-  userRepository = getRepository(User);
 
   static saveFavorite = async (request: Request, response: Response, next: NextFunction) => {
 
     try {
-    
-   const {id, title, description, url, urlToImage, source, author, category, publishedAt} = request.body
+      const { id, title, description, url, urlToImage, source, author, category, publishedAt } = request.body
 
-    // const parsedBody = JSON.stringify(request.body)
+      await getRepository(Article).save({ id, title, description, url, urlToImage, source, author, category, publishedAt })
       
-    await getRepository(Article).save({id, title, description, url, urlToImage, source, author, category, publishedAt})
-
       const userFave = {
         userId: request.params.userId,
         articleId: request.body.id
@@ -30,6 +24,7 @@ class FavoriteController {
     } catch (err) {
       console.log("something went wrong");
     }
+
     next()
   }
 
@@ -37,25 +32,25 @@ class FavoriteController {
     try {
       const faves = await getRepository(Favorite).find(
         {
-  
+
           where: {
             userId: request.params.userId
           },
-  
+
           relations: ["articles"]
         });
-  
-      //  let arts = faves.reduce()
+
+
       let arts = faves.map(e => {
         return e.articles
       })
-  
+
       // return arts
       response.json(arts)
     } catch (error) {
       response.send('something went wrong')
     }
-   
+
   }
 
   static removeFavorite = async (request: Request, response: Response, next: NextFunction) => {
@@ -68,7 +63,7 @@ class FavoriteController {
     })
 
     await getRepository(Favorite).delete(favoriteToRemove)
-    response.json({favoriteToRemove})
+    response.json({ favoriteToRemove })
   }
 
 

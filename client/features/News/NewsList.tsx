@@ -11,9 +11,8 @@ const NewsList = ({data}) => {
 
     const addToFavorites = async({description, title, url, urlToImage, publishedAt, source}) => {
         try {
-        // let id = title + publishedAt.replace(/[^a-zA-Z0-9 ]/g, '')
-          let id = title + publishedAt
-            await addNewFavorite({userId:userId,title, id,url, urlToImage, description, source, publishedAt  }).unwrap()
+        let id = title + publishedAt.replace(/[^a-zA-Z0-9 ]/g, '')
+            await addNewFavorite({userId:userId, title, id, url, urlToImage, description, source, publishedAt  }).unwrap()
           
         } catch (error) {
             console.error('Failed to save the post: ', error)

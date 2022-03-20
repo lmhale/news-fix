@@ -11,7 +11,6 @@ interface ArticleProps {
 
 const userId = localStorage.getItem("userId")
 
-
 export const GetNewsData: FC<any> = ({category}):JSX.Element => {
 const { data=[], isFetching } = useGetTopHeadlinesQuery(category);
 

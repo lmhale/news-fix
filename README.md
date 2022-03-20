@@ -50,10 +50,25 @@ many to many relationship
  `/:userId/favorites`
  #### POST
   `/login` \
- `/signup` \
- `/:userId/favorites`
+ `/signup` 
+
+ `/:userId/favorites` 
+
+ This route is pivotal to the app because it associates a user with an article in the Articles table. 
+ Here is what happens after a user clicks the 'Add to Favorites' button. \
+ 1. RTK query posts data to our API endpoint.
+The request object contains the users Id (put in local storage upon logging in), and the news articles information including its Id.
+    ![NewsList Snippet](screenshots/NewsListQuery.png)
+ 
+2. The Favorites controller takes the article data from the request body and saves it to the Aritcle repository. (Note if the Article already exists in the database it will update it).
+    Then the controller takes the userId from the requests params and the article Id to create an entry in the Favorites table. The controller sends back the newly created favorite (userId and articleId) as its response.
+
+    ![Save Favorites](screenshots/FavortiesController.png)
+
  #### DELETE    
 `/:userId/favorites/:articleId`
+
+
 
 ## Client Side Overview
  
