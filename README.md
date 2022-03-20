@@ -43,7 +43,11 @@ My controllers serve as the go between from my frontend views and my database.
 ## Server Side Overview
 
 ### Enitity Relationships
-many to many relationship
+The relationship between users and articles is many to many.
+In order to simplify the data querying process I created a custom join table Favorites which has a many-to-one relationshp with both Users and Articles.
+
+
+![ERD](screenshots/ERD-1.jpg)
 
 ### API Endpoints
 #### GET
